@@ -1,0 +1,103 @@
+<%= stylesheet_link_tag 'application'  %>
+
+<h1>Create New Table</h1>
+<% if flash[:notice] %>
+  <div class="alert alert-danger">
+    <div class="message" id="notice">
+      <%= flash[:notice] %>
+    </div>
+  </div>
+<% elsif flash[:warning] %>
+  <div class="alert alert-danger">
+    <div class="flashMessage" id="warning">
+      <%= flash[:warning] %>
+    </div>
+  </div>
+<% end %>
+<%= form_tag tables_path, :class => 'form' do %>
+  <%  cards = [{ name: "AS", location: "deck", status: 1, cardFront: "&#127137", tablename: 'tempTable'},
+               { name: "2S", location: "deck", status: 1, cardFront: "&#127138", tablename: 'tempTable'},
+               { name: "3S", location: "deck", status: 1, cardFront: "&#127139", tablename: 'tempTable'},
+               { name: "4S", location: "deck", status: 1, cardFront: "&#127140", tablename: 'tempTable'},
+               { name: "5S", location: "deck", status: 1, cardFront: "&#127141", tablename: 'tempTable'},
+               { name: "6S", location: "deck", status: 1, cardFront: "&#127142", tablename: 'tempTable'},
+               { name: "7S", location: "deck", status: 1, cardFront: "&#127143", tablename: 'tempTable'},
+               { name: "8S", location: "deck", status: 1, cardFront: "&#127144", tablename: 'tempTable'},
+               { name: "9S", location: "deck", status: 1, cardFront: "&#127145", tablename: 'tempTable'},
+               { name: "10S", location: "deck", status: 1, cardFront: "&#127146", tablename: 'tempTable'},
+               { name: "JS", location: "deck", status: 1, cardFront: "&#127147", tablename: 'tempTable'},
+               { name: "QS", location: "deck", status: 1, cardFront: "&#127149", tablename: 'tempTable'},
+               { name: "KS", location: "deck", status: 1, cardFront: "&#127150", tablename: 'tempTable'},
+               { name: "AH", location: "deck", status: 1, cardFront: "&#127153", tablename: 'tempTable'},
+               { name: "2H", location: "deck", status: 1, cardFront: "&#127154", tablename: 'tempTable'},
+               { name: "3H", location: "deck", status: 1, cardFront: "&#127155", tablename: 'tempTable'},
+               { name: "4H", location: "deck", status: 1, cardFront: "&#127156", tablename: 'tempTable'},
+               { name: "5H", location: "deck", status: 1, cardFront: "&#127157", tablename: 'tempTable'},
+               { name: "6H", location: "deck", status: 1, cardFront: "&#127158", tablename: 'tempTable'},
+               { name: "7H", location: "deck", status: 1, cardFront: "&#127159", tablename: 'tempTable'},
+               { name: "8H", location: "deck", status: 1, cardFront: "&#127160", tablename: 'tempTable'},
+               { name: "9H", location: "deck", status: 1, cardFront: "&#127161", tablename: 'tempTable'},
+               { name: "10H", location: "deck", status: 1, cardFront: "&#127162", tablename: 'tempTable'},
+               { name: "JH", location: "deck", status: 1, cardFront: "&#127163", tablename: 'tempTable'},
+               { name: "QH", location: "deck", status: 1, cardFront: "&#127165", tablename: 'tempTable'},
+               { name: "KH", location: "deck", status: 1, cardFront: "&#127166", tablename: 'tempTable'},
+               { name: "AD", location: "deck", status: 1, cardFront: "&#127169", tablename: 'tempTable'},
+               { name: "2D", location: "deck", status: 1, cardFront: "&#127170", tablename: 'tempTable'},
+               { name: "3D", location: "deck", status: 1, cardFront: "&#127171", tablename: 'tempTable'},
+               { name: "4D", location: "deck", status: 1, cardFront: "&#127172", tablename: 'tempTable'},
+               { name: "5D", location: "deck", status: 1, cardFront: "&#127173", tablename: 'tempTable'},
+               { name: "6D", location: "deck", status: 1, cardFront: "&#127174", tablename: 'tempTable'},
+               { name: "7D", location: "deck", status: 1, cardFront: "&#127175", tablename: 'tempTable'},
+               { name: "8D", location: "deck", status: 1, cardFront: "&#127176", tablename: 'tempTable'},
+               { name: "9D", location: "deck", status: 1, cardFront: "&#127177", tablename: 'tempTable'},
+               { name: "10D", location: "deck", status: 1, cardFront: "&#127178", tablename: 'tempTable'},
+               { name: "JD", location: "deck", status: 1, cardFront: "&#127179", tablename: 'tempTable'},
+               { name: "QD", location: "deck", status: 1, cardFront: "&#127181", tablename: 'tempTable'},
+               { name: "KD", location: "deck", status: 1, cardFront: "&#127182", tablename: 'tempTable'},
+               { name: "AC", location: "deck", status: 1, cardFront: "&#127185", tablename: 'tempTable'},
+               { name: "2C", location: "deck", status: 1, cardFront: "&#127186", tablename: 'tempTable'},
+               { name: "3C", location: "deck", status: 1, cardFront: "&#127187", tablename: 'tempTable'},
+               { name: "4C", location: "deck", status: 1, cardFront: "&#127188", tablename: 'tempTable'},
+               { name: "5C", location: "deck", status: 1, cardFront: "&#127189", tablename: 'tempTable'},
+               { name: "6C", location: "deck", status: 1, cardFront: "&#127190", tablename: 'tempTable'},
+               { name: "7C", location: "deck", status: 1, cardFront: "&#127191", tablename: 'tempTable'},
+               { name: "8C", location: "deck", status: 1, cardFront: "&#127192", tablename: 'tempTable'},
+               { name: "9C", location: "deck", status: 1, cardFront: "&#127193", tablename: 'tempTable'},
+               { name: "10C", location: "deck", status: 1, cardFront: "&#127194", tablename: 'tempTable'},
+               { name: "JC", location: "deck", status: 1, cardFront: "&#127195", tablename: 'tempTable'},
+               { name: "QC", location: "deck", status: 1, cardFront: "&#127197", tablename: 'tempTable'},
+               { name: "KC", location: "deck", status: 1, cardFront: "&#127198", tablename: 'tempTable'},
+               { name: "RJ", location: "deck", status: 1, cardFront: "&#127167", tablename: 'tempTable'},
+               { name: "BJ", location: "deck", status: 1, cardFront: "&#127183", tablename: 'tempTable'},]%>
+
+  <%= label :table, :tablename, 'Table Name', :class => 'col-form-label' %>
+  <%= text_field :table, :tablename, :class => 'form-control' %>
+  <%= label :table, :included, 'Cards to be exluded (for a normal deck check the two jokers at the bottom)', :class => 'col-form-label' %>
+  <table class="table table-striped col-md-12 table-condensed cf" id="cards">
+    <thead>
+    <tr>
+      <th>Card</th>
+      <th>Name</th>
+      <th>Select</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% cards.each do |card| %>
+      <tr>
+        <td>
+          <%= card[:cardFront].html_safe %>
+        </td>
+        <td>
+          <%= card[:name] %>
+        </td>
+        <td>
+          <%= check_box_tag "checkbox[#{card[:name]}]"%>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <br/>
+  <%= submit_tag 'Save Changes', :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', tables_path, :class => 'btn btn-secondary' %>
+<% end %>
